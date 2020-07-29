@@ -4,17 +4,17 @@ ourApp.use(express.urlencoded({ extended: false }))
 
 ourApp.get("/", function (req, resp) {
   resp.send(`
-    <form action="/answer" method="POST">
-    <p>What is the color of the sky?</p>
-    <input name"skyColor" autcomplete="off" />
-    <button>Enter</button>
+    <form method="POST" action="/answer" >
+    <p>What is the color of the sun?</p>
+    <input name="sunColor" type="text">
+    <input type="submit" value="Enter">Enter</input>
     </form>
     `)
 })
 
 ourApp.post("/answer", function (req, res) {
-  console.log(req.body.skyColor)
-  if (req.body.skyColor == "blue") {
+  console.log(req.body.sunColor)
+  if (req.body.sunColor.toLowerCase() == "white") {
     res.send(`
     <p>Your answer is correct</p>
     <a href="/">Go back to homepage</a>
@@ -27,4 +27,4 @@ ourApp.post("/answer", function (req, res) {
   }
 })
 
-ourApp.listen(3000)
+ourApp.listen(3200)
